@@ -1,0 +1,140 @@
+var	start	end	width	descr
+CPRO	1	2	2	Código de provincia
+CMUN	3	5	3	Código o tamaño de municipio
+IDHUECO	6	15	10	Identificador de hueco
+NORDEN	16	19	4	Número final de la persona dentro del hueco
+FACTOR	20	33	14	Factor de elevación de la persona
+MNAC	34	35	2	Mes de nacimiento 
+ANAC	36	39	4	Año de nacimiento 
+EDAD	40	42	3	Edad
+SEXO	43	43	1	Sexo
+NACI	44	46	3	Código país de nacionalidad
+CPAISN	47	49	3	Código país de nacimiento
+CPRON	50	51	2	Código provincia de nacimiento
+CMUNN	52	54	3	Código o tamaño municipio de nacimiento
+ANORES	55	58	4	Año de llegada a la vivienda
+ANOM	59	62	4	Año de llegada al municipio
+ANOC	63	66	4	Año de llegada a la Comunidad Autónoma
+ANOE	67	70	4	Año de llegada a España
+CLPAIS	71	73	3	Código país de residencia anterior
+CLPRO	74	75	2	Código provincia de residencia anterior
+CLMUNP	76	78	3	Código o tamaño municipio de residencia anterior
+CPAISUNANO	79	81	3	Código país de residencia hace 1 año
+CPROUNANO	82	83	2	Código provincia de residencia hace 1 año
+CMUNANO	84	86	3	Código o tamaño municipio de residencia hace 1 año
+CPAISDANO	87	89	3	Código país de residencia hace 10 años
+CPRODANO	90	91	2	Código provincia de residencia hace 10 años
+CMUNDANO	92	94	3	Código o tamaño municipio de residencia hace 10 años
+SEG_VIV	95	95	1	Pasa más de 14 noches en segundo municipio
+SEG_PAIS	96	98	3	Codigo de país donde pasa más de 14 noches
+SEG_PROV	99	100	2	Código de provincia donde pasa más de 14 noches
+SEG_MUN	101	103	3	Código o tamaño de municipio donde pasa más de 14 noches
+SEG_NOCHES	104	106	3	Número de noches
+SEG_DISP	107	107	1	Disponibilidad vivienda en segundo municipio
+ECIVIL	108	108	1	Estado civil
+ESCOLAR	109	109	1	Acude a un centro escolar
+ESREAL	110	111	2	Nivel de estudios completados
+TESTUD	112	112	1	Tipo de estudios realizados
+TAREA1	113	113	1	Cuidar a un menor de 15 años
+TAREA2	114	114	1	Cuidar a una persona con problemas de salud
+TAREA3	115	115	1	Tareas benéficas o voluntariado social
+TAREA4	116	116	1	Encargárse de la mayor parte de las tareas domésticas de su hogar
+HIJOS	117	117	1	Indicador de si la mujer ha tenido hijos
+NHIJOS	118	119	2	Número de hijos de la mujer
+RELA	120	120	1	Relación con la actividad
+JORNADA	121	121	1	Tipo de jornada de trabajo
+CNO	122	123	2	Código de ocupación a 2 dígitos
+CNAE	124	125	2	Código de actividad económica a 2 dígitos
+SITU	126	126	1	Situación profesional
+CSE	127	131	5	Condición socioeconómica
+ESCUR1	132	133	2	Estudios en curso
+ESCUR2	134	135	2	
+ESCUR3	136	137	2	
+LTRABA	138	138	1	Lugar de trabajo o estudio
+PAISTRABA	139	141	3	País de trabajo o estudio
+PROTRABA	142	143	2	Provincia de trabajo o estudio
+MUNTRABA	144	146	3	Municipio de trabajo o estudio
+CODTRABA	147	151	5	Código postal de trabajo o estudio
+NVIAJE	152	152	1	Número de viajes diarios
+MDESP1	153	153	1	Medio de desplazamiento
+MDESP2	154	154	1	
+TDESP	155	155	1	Tiempo de desplazamiento
+TENEN	156	156	1	Régimen de tenencia
+CALE	157	157	1	Calefacción 
+ASEO	158	158	1	Cuanto de aseo con inodoro
+BADUCH	159	159	1	Baño o ducha
+INTERNET	160	160	1	Acceso a Internet
+AGUACOR	161	161	1	Sistema de suministro de agua
+SUT	162	164	3	Superficie útil
+NHAB	165	166	2	Número de habitaciones
+PLANTAS	167	168	2	Número de plantas sobre rasante
+PLANTAB	169	169	1	Número de plantas bajo rasante
+TIPOEDIF	170	170	1	Tipo de edificio
+ANOCONS	171	172	2	Año de construcción
+ESTADO	173	173	1	Estado del edificio
+ASCENSOR	174	174	1	Ascensor en el edificio
+ACCESIB	175	175	1	Accesibilidad del edificio
+GARAJE	176	176	1	Garaje
+PLAZAS	177	177	1	Número de plazas de garaje
+GAS	178	178	1	Gas
+TELEF	179	179	1	Tendido telefónico
+ACAL	180	180	1	Agua caliente central
+RESID	181	181	1	Evacuación de aguas residuales
+FAMILIA	182	182	1	Número de familia dentro del hogar
+PAD_NORDEN	183	184	2	NORDEN del padre
+MAD_NORDEN	185	186	2	NORDEN de la madre
+CON_NORDEN	187	188	2	NORDEN del cónyuge o pareja
+OPA_NORDEN	189	190	2	NORDEN de otro pariente
+TIPOPER	191	191	1	Condición dentro del núcleo
+NUCLEO	192	193	2	Número de núcleo dentro del hogar
+NMIEM	194	195	2	Tamaño del hogar
+NFAM	196	196	1	Número de familias en el hogar
+NNUC	197	197	1	Número de núcleos en el hogar
+NGENER	198	199	2	Número de generaciones en el hogar
+ESTHOG	200	201	2	Estructura del hogar
+TIPOHOG	202	203	2	Tipo de hogar
+NOCU	204	205	2	Número de ocupados del hogar
+NPARAIN	206	207	2	Número de parados o inactivos del hogar
+NPFAM	208	209	2	Número de personas en familia
+NPNUC	210	211	2	Número de personas que pertenecen a algún núcleo
+HM5	212	213	2	Número de personas de 0 a 4 años en el hogar
+H0515	214	215	2	Número de personas de 5 a 15 años en el hogar
+H1624	216	217	2	Número de personas de 16 a 24 años en el hogar
+H2534	218	219	2	Número de personas de 25 a 34 años en el hogar
+H3564	220	221	2	Número de personas de 35 a 64 años en el hogar 
+H6584	222	223	2	Número de personas de 65 a 84 años en el hogar 
+H85M	224	225	2	Número de personas del hogar de 85 años o más en el hogar
+HESPHOG	226	227	2	Hombres españoles en el hogar
+MESPHOG	228	229	2	Mujeres españolas en el hogar
+HEXTHOG	230	231	2	Hombres extranjeros en el hogar
+MEXTHOG	232	233	2	Mujeres extranjeras en el hogar
+COMBINAC	234	234	1	Combinación de nacionalidades en el hogar
+EDADPAD	235	236	2	Edad grupos quinquenales del padre
+PAISNACPAD	237	239	3	País de nacimiento del padre
+NACIPAD	240	240	1	Nacionalidad del padre
+ECIVPAD	241	241	1	Estado civil del padre
+ESTUPAD	242	242	1	Nivel de estudios del padre (en grados)
+SITUPAD	243	243	1	Relación con la actividad del padre
+SITPPAD	244	244	1	Situación profesional del padre
+EDADMAD	245	246	2	Edad grupos quinquenales de la madre
+PAISNACMAD	247	249	3	País de nacimiento de la madre
+NACIMAD	250	250	1	Nacionalidad de la madre
+ECIVMAD	251	251	1	Estado civil de la madre
+ESTUMAD	252	252	1	Nivel de estudios de la madre (en grados)
+SITUMAD	253	253	1	Relación con la actividad de la madre
+SITPMAD	254	254	1	Situación profesional de la madre
+EDADCON	255	256	2	Edad grupos quinquenales del cónyuge
+NACCON	257	257	1	País de nacimiento del cónyuge
+NACICON	258	258	1	Nacionalidad del cónyuge
+ECIVCON	259	259	1	Estado civil del cónyuge
+ESTUCON	260	260	1	Nivel de estudios del cónyuge (en grados)
+SITUCON	261	261	1	Relación con la actividad del cónyuge
+SITPCON	262	262	1	Situación profesional del cónyuge
+TIPONUC	263	263	1	Tipo de núcleo
+TAMNUC	264	265	2	Tamaño del núcleo
+NHIJO	266	267	2	Número de hijos
+NHIJOC	268	269	2	Número de hijos comunes del núcleo
+FAMNUM	270	271	2	Indicador de familia numerosa
+TIPOPARECIV	272	273	2	Tipo de pareja(de hecho o de derecho)
+TIPOPARSEX	274	275	2	Tipo de pareja(mismo sexo, distinto sexo) 
+DIFEDAD	276	277	2	Diferencia de edad entre hombre y mujer del núcleo
