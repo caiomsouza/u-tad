@@ -1,0 +1,146 @@
+---
+title: "01_clases_s4_mapas.Rmd"
+author: "Caio Moreno"
+resource_used: http://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf
+output: html_document
+---
+
+Los ejercicios tienen que resolverse individualmente. No son sencillos: parte de ellos están inspirados en problemas prácticos reales. Por eso puedes ayudarte de cualquier tipo de instrumento (Google, blogs, libros, etc.) que estaría a tu alcance en tu trabajo. Eso sí, en las soluciones que envíes, indica los recursos que utilices y deja clara cuál es tu aportación en cada caso.
+
+El envío de los ficheros se hará por medio del Blackboard. La fecha límite para puntuar sobre 10 es tres semanas después de la clase. A partir de entonces, la nota máxima bajará dos puntos por semana.
+
+A pesar de que hay 14 puntos en juego, las prácticas se evaluarán sobre 10, que es la máxima nota.
+
+### Formato de entrega
+
+El fichero que envíes tiene que contener tres directorios:
+
+1. `dat`, donde almacenarás los datos necesarios y solo los necesarios (piensa que alguno de los ficheros que te pido que uses ocupa muchos megas) para la resolución de los ejercicios. Véanse las excepciones en el enunciado de los ejercicios.
+2. `src`, donde estarán los ficheros `.Rmd` y los ficheros `.html` o `.pdf` que generes. Los ficheros tienen que tener un nombre del tipo `01_clases_s4_mapas.Rmd`, `02_json_xml.Rmd` o similar. 
+
+En cada ejercicio se valorará con un 25% de la puntuación final que el fichero `.Rmd` se ejecute y lo haga en un tiempo razonable sin ningún tipo de edición por mi parte.
+
+## Ejercicio 01 - Clases S4 y mapas (2 puntos)
+
+Obtén _shapefiles_ de, p.e., provincias españolas (el INE los proporciona). Luego, obtén datos de algún tipo de estadística asociada a dichas entidades (población, tasa de desempleo, etc.). Con esos dos elementos, crea un `SpatialPolygonsDataFrame` y represéntalos gráficamente.
+
+Ten en cuenta que si la variable que quieres representar es continua, espero que utilices una escala de colores que muestre las variaciones en la estadística en términos de la intensidad.
+
+Trata de hacerlo _reproduciblemente_ (¿con R MarkDown?). 
+
+## Ejercicio 01 - Clases S4 y mapas (2 puntos) - Resolución
+
+
+
+```{r}
+
+#
+# Caio Moreno
+# twitte.com/caiomsouza
+# github.com/caiomsouza
+# caiomsouza@gmail.com
+#
+# Recursos utilizados:
+# http://cran.r-project.org/doc/contrib/intro-spatial-rl.pdf
+
+# Load all libraries
+if (!(require("rgeos", character.only=T, quietly=T))) {
+  install.packages("rgeos")
+  library("rgeos", character.only=T)
+}
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+
+
+library(rgdal)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+library(ggplot2)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+library(rgeos)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+library(maptools)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+library(plyr)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+library(reshape2)
+
+if (!(require("maptools", character.only=T, quietly=T))) {
+  install.packages("maptools")
+  library("maptools", character.only=T)
+}
+
+
+# Establecer el directorio de trabajo antes de ejecutarlo
+setwd("~/git/Bitbucket/u-tad/Mod7/carlos.bellosta/ejercicios-entregues")
+
+# Cargamos los shapefiles y lo formateamos para que pueda ser representado por ggplot2
+provincias.Espana <- readOGR(dsn = "dat/Provincias_ETRS89_30N","Provincias_ETRS89_30N")
+typeof(provincias.Espana)
+
+provincias.Espana.df <- fortify(provincias.Espana, region = "Codigo")
+head(provincias.Espana.df)
+provincias.Espana.df <- merge(provincias.Espana.df, provincias.Espana@data, by.x = "id", by.y = "Codigo")
+
+# Cargamos y limpiamos el df con los viajeros entrados por provincia en los últimos años (2011, 2012 y 2013 - Encuesta de ocupación hotelera)
+
+# Arreglar eso cambiar el lapply(11:13) eso es para cargar los ficheiros de 11 a 13
+
+tmp <- lapply(c(11:13), function(x) 
+                        read.table(paste(paste("dat/viajeros_provincias_20", x, sep = ""), ".csv", sep = ""), sep = ";", header = T, encoding = "UTF-8"))
+# No se indican las columnas de unión, lo coge automáticamente por provincia.
+viajeros.Espana <- join(join(tmp[[1]], tmp[[2]]), tmp[[3]])
+viajeros.Espana <- viajeros.Espana[,-3]
+colnames(viajeros.Espana)[2:4] <- c("2011", "2012", "2013")
+
+provincias.Espana$Texto %in% viajeros.Espana$Provincia
+provincias.Espana$Texto[which(!(provincias.Espana$Texto %in% viajeros.Espana$Provincia))]
+levels(viajeros.Espana$Provincia)
+# Se indexa con un factor, si fuera character no se podría
+levels(viajeros.Espana$Provincia)[viajeros.Espana$Provincia[which(!(viajeros.Espana$Provincia %in% provincias.Espana$Texto))]] <- c("Vizcaya", "Guipúzcoa", "Gerona", "Orense")
+provincias.Espana$Texto %in% viajeros.Espana$Provincia
+
+# Convertimos en formato largo para trabajar con los datos
+viajeros.Espana.melt <- melt(viajeros.Espana, id = "Provincia")
+
+plot.data <- merge(provincias.Espana.df, viajeros.Espana.melt, by.x = "Texto", by.y = "Provincia")
+plot.data <- plot.data[order(plot.data$order), ]
+#colnames(viajeros.España.melt)[2:3] <- c("año", "visitas")
+
+head(plot.data)
+
+ggplot(data = plot.data, aes(x = long, y = lat, fill = value, group = group)) + 
+  geom_polygon() + geom_path(colour = "grey", lwd = 0.1) + coord_equal() + facet_wrap(~variable)
+
+
+
+```
+

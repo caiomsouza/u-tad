@@ -1,0 +1,8 @@
+Package: caiomsouzarpackage
+Title: This package was created for the Experto en Data Science de U-Tad, Modulo 7
+Version: 0.1
+Authors@R: person("Caio", "Moreno", email = "caiomsouza@gmail.com", role = c("aut", "cre"))
+Description: This package was created for the Experto en Data Science de U-Tad, Modulo 7. It is an example of a R Package
+Depends: R (>= 3.1.2)
+License: Apache License Version 2
+LazyData: true
