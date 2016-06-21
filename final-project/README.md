@@ -1,6 +1,6 @@
 # U-TAD Final Project 
 
-I created a separated repository for my final project.<BR>
+I created a separate repository for my final project.<BR>
 
 Please visit the page:<BR>
 
